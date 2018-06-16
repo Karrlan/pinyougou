@@ -2,7 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
- <!-- 父项目决定版本号-->
+ <!-- 父项目决定版本号2-->
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pinyougou</groupId>
   <artifactId>pinyougou-parent</artifactId>
