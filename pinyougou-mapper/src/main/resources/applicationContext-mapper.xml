@@ -52,4 +52,8 @@
         业务层需要加事务会产生代理对象，需设置proxy-target-class为true采用cglib产生代理 -->
     <tx:annotation-driven transaction-manager="transactionManager"
                           proxy-target-class="true"/>
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+
+        <property name="basePackage" value="com.pinyougou.mapper"/>
+    </bean>
 </beans>
