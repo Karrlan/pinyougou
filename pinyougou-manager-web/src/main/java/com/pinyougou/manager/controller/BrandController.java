@@ -1,26 +1,31 @@
 package com.pinyougou.manager.controller;
 
 
+import com.alibaba.dubbo.config.annotation.Reference;
+import com.pinyougou.pojo.Brand;
 import com.pinyougou.sellergoods.service.BrandService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import java.util.List;
+
+@RestController
+@RequestMapping("/brand")
 public class BrandController {
 
-    @Autowired
+    /**
+     * 引用服务，
+     * 调用服务超时的毫秒数
+     */
+    @Reference
    private BrandService brandService;
 
-    @RequestMapping("/findAll")
-    public  void findAll(){
+    @GetMapping("/findAll")
+    public List<Brand> findAll() {
 
 
-        brandService.findAll();
-
-
-
-
+        return brandService.findAll();
 
     }
 
