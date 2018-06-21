@@ -13,6 +13,13 @@ public interface BrandService {
     List <Brand> findAll();
 
     //分页查询品牌列表
-    PageResult findByPage(int pageNum, int pageSize);
+    PageResult findByPage(Brand brand,Integer pageNum, Integer pageSize);
 
+
+    //新建品牌列表
+    void  saveBrand(Brand brand);
+
+    void updateBrand(Brand brand);
+
+    void deleteBrand(Long[] ids);
 }

@@ -26,16 +26,43 @@ public class BrandServiceImpl  implements BrandService {
     }
 
     @Override
-    public PageResult findByPage(int pageNum, int pageSize) {
+    public PageResult findByPage(Brand brand,Integer pageNum, Integer pageSize) {
         PageInfo<PageResult> pageInfo  = PageHelper
                 .startPage(pageNum,pageSize)
                 .doSelectPageInfo(new ISelect() {
                     @Override
                     public void doSelect() {
-                        brandMapper.selectAll();
+                        brandMapper.findBySearch(brand);
                     }
                 });
 
         return new PageResult(pageInfo.getTotal(),pageInfo.getList());
+    }
+
+    @Override
+    public void saveBrand(Brand brand) {
+       try{
+           brandMapper.insertSelective(brand);
+       }catch (Exception ex){
+           ex.printStackTrace();
+       }
+    }
+
+    @Override
+    public void updateBrand(Brand brand) {
+        try{
+            brandMapper.updateByPrimaryKey(brand);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void deleteBrand(Long[] ids) {
+       try{
+           brandMapper.deleteByID(ids);
+       }catch (Exception ex){
+           ex.printStackTrace();
+       }
     }
 }

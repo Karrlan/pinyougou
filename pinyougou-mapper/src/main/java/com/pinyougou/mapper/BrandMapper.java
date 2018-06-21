@@ -2,6 +2,7 @@ package com.pinyougou.mapper;
 
 import com.pinyougou.pojo.Brand;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -18,4 +19,9 @@ public interface BrandMapper extends Mapper<Brand> {
 
     @Select("select * from tb_brand order by id asc")
     List<Brand> findAll();
+
+
+    void deleteByID(@Param("ids") Long[] ids);
+
+    List<Brand> findBySearch(@Param("brand") Brand brand);
 }
